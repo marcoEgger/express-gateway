@@ -1,4 +1,4 @@
-FROM node:10-alpine
+FROM node:14.16.0-alpine
 
 LABEL maintainer Vincenzo Chianese, vincenzo@express-gateway.io
 
@@ -8,6 +8,8 @@ ENV NODE_PATH /usr/local/share/.config/yarn/global/node_modules/
 ENV EG_CONFIG_DIR /var/lib/eg
 # Enable chokidar polling so hot-reload mechanism can work on docker or network volumes
 ENV CHOKIDAR_USEPOLLING true
+
+RUN apk --no-cache upgrade
 
 VOLUME /var/lib/eg
 
